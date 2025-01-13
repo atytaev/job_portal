@@ -1,0 +1,170 @@
+/* Основной контейнер */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Заголовок страницы */
+.page-heading {
+    font-size: 36px;
+    font-weight: 600;
+    color: #4a4a4a;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Сетка карточек вакансий */
+.job-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+/* Карточка вакансии (окно) */
+.job-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+    position: relative; /* Для размещения кнопки и дополнительных элементов */
+}
+
+/* При наведении на карточку (окно) */
+.job-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #ecf0f1;
+}
+
+/* Заголовок вакансии */
+.job-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Описание вакансии */
+.job-card-description {
+    font-size: 16px;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Кнопка для перехода к подробной информации */
+.job-card-footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+.button-primary {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px); /* Плавный эффект при наведении */
+}
+
+/* Кнопка для создания вакансии */
+.button-secondary {
+    display: inline-block;
+    color: #3498db;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.button-secondary:hover {
+    color: #2980b9;
+}
+
+/* Сообщение, если вакансий нет */
+.no-jobs-message {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 40px;
+    color: #bdc3c7;
+}
+
+.no-jobs-message a {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.no-jobs-message a:hover {
+    color: #2980b9;
+}
+
+
+/* Кнопка для удаления вакансии */
+.btn-danger {
+    display: inline-block;
+    background-color: #e74c3c; /* Красный цвет для кнопки удаления */
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px; /* Немного отступа от остальных элементов */
+    text-align: center;
+}
+
+/* При наведении на кнопку удаления */
+.btn-danger:hover {
+    background-color: #c0392b; /* Темнее при наведении */
+    transform: translateY(-2px); /* Плавный эффект при наведении */
+}
+
+/* Выравнивание кнопки на карточке вакансии */
+.job-card-footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 0 15px;
+}
+
+
+
+/* Обертка для кнопок в карточке */
+.job-card-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;  /* Выравнивание кнопок вертикально */
+    justify-content: space-between;
+    gap: 15px;  /* Пространство между кнопками */
+}
+
+/* Выравнивание кнопок по центру */
+.job-card-footer .btn-danger {
+    width: 100%;  /* Кнопка займет всю ширину контейнера */
+    margin-top: 15px; /* Отступ от других элементов */
+}

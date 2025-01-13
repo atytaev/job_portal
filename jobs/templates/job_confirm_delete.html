@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+    <h1>Вы уверены, что хотите удалить эту вакансию?</h1>
+
+    <p><strong>Название вакансии:</strong> {{ job.title }}</p>
+    <p><strong>Описание:</strong> {{ job.description }}</p>
+    <p><strong>Местоположение:</strong> {{ job.location }}</p>
+    <p><strong>Компания:</strong> {{ job.company.username }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+        <a href="{% url 'job_list' %}">Отмена</a>
+    </form>
+{% endblock %}

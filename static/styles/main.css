@@ -1,0 +1,235 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #000000; /* Основной цвет ссылки */
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    background: #000000;
+    color: white;
+    padding: 10px 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Добавляем перенос строк */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Формы */
+
+.containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+.register-form h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #000000;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    color: #000000;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+    background: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #2575fc;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+}
+
+/* Кнопка */
+.btn-register {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background: #2575fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-register:hover {
+    background: #1b63cf;
+    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.5);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-footer a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Карточки вакансий */
+.job-list {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    margin: 10px auto;
+}
+
+.job-card h3 {
+    margin-top: 5px;
+    font-size: 1.5em;
+}
+
+.job-card h2 {
+    font-size: 1.2em;
+}
+
+/* Toast уведомления */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #fff;
+    background-color: #3498db;
+    animation: fadeIn 0.5s ease, fadeOut 0.5s ease 4.5s forwards;
+}
+
+/* Медиа-запросы для адаптации */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .register-form {
+        padding: 10px;
+    }
+
+    .job-list {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .btn-register {
+        font-size: 0.9em;
+    }
+
+    .toast {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-form h2 {
+        font-size: 1.5em;
+    }
+
+    .btn-register {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+
+    .job-card h3 {
+        font-size: 1.2em;
+    }
+
+    .job-card h2 {
+        font-size: 1em;
+    }
+
+    .toast {
+        font-size: 10px;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/user_resume.css' %}">
+<div class="my-resume-page">
+    <!-- Заголовок -->
+    <div class="my-resume-header">
+        <h1>Мое резюме</h1>
+        <p>Просмотрите и обновите свое резюме</p>
+    </div>
+
+    <!-- Раздел: Личная информация -->
+    <div class="resume-section">
+        {% if resume %}
+            <h2>Личная информация</h2>
+            <p><strong>Имя:</strong> {{ resume.first_name }} </p>
+            <p><strong>Фамилия:</strong> {{ resume.last_name }} </p>
+            <p><strong>Дата рождения:</strong> {{ resume.Birth }} </p>
+            <p><strong>Город проживания:</strong> {{ resume.city }} </p>
+            <p><strong>Навыки:</strong>  {{ resume.skills }}</p>
+            <p><strong>Опыт работы:</strong> {{ resume.experience }}</p>
+            <p><strong>Образование:</strong> {{ resume.education }}</p>
+            <p><strong>Контактная информация:</strong> {{ resume.contact_info }}</p>
+        {% else %}
+            <p>
+                У вас пока нет резюме. <a href="{% url 'create_resume' %}">Создать резюме</a>
+            </p>
+        {% endif %}
+        <div class="resume-actions">
+            {% if resume %}
+                <a href="{% url 'edit_resume' resume.pk %}"  class="btn">Редактировать</a>
+                <form action="{% url 'delete_resume' resume.pk%}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn" style="background-color: #e74c3c;">Удалить резюме</button>
+                </form>
+            {% else %}
+                <p>Резюме отсутствует.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

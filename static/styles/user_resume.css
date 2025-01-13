@@ -1,0 +1,89 @@
+.my-resume-page {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.my-resume-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.my-resume-header h1 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.my-resume-header p {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.resume-section h2 {
+    font-size: 20px;
+    color: #34495e;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.resume-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resume-section ul li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.resume-section ul li::before {
+    content: "•";
+    font-size: 18px;
+    color: #3498db;
+    margin-right: 10px;
+}
+
+.resume-section p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.resume-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resume-actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.resume-actions .btn:hover {
+    background-color: #2980b9;
+}

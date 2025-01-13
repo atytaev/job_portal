@@ -1,0 +1,167 @@
+h1{
+text-align: center;
+}
+
+/* Основной контейнер страницы */
+.vacancy-page {
+    display: flex; /* Используем Flexbox для размещения фильтров и вакансий */
+    gap: 20px; /* Расстояние между фильтрами и списком */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Блок фильтров */
+.filter-section {
+    flex: 1; /* Фильтры занимают фиксированное пространство */
+    max-width: 300px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+.filter-section label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: #555;
+}
+
+.filter-section input,
+.filter-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; /* Увеличено расстояние между полями формы */
+    margin-top: 5px; /* Увеличено расстояние сверху для input */
+    border: 5px  #fffff;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 2; /* Увеличивает расстояние между строками внутри полей */
+}
+
+.filter-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Секция списка вакансий */
+.vacancy-list {
+    flex: 3; /* Список вакансий занимает оставшееся пространство */
+}
+
+.vacancy-list h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Сетка карточек вакансий */
+.vacancy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка вакансии */
+.vacancy-card {
+    background: linear-gradient(to right, #f49b01 10px, #fff 10px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    cursor: pointer; /* Делаем всю карточку кликабельной */
+    position: relative; /* Для размещения времени и кнопки внутри */
+}
+
+.vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.vacancy-card h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: -15px;
+    color: #34495e;
+}
+
+.vacancy-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: -10px;
+}
+
+/* Контейнер для кнопки и времени */
+.vacancy-time-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Стиль для кнопки "Откликнуться" */
+.apply-btn {
+    background-color: #F4CA9A;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.apply-btn:hover {
+    background-color: #e68900;
+}
+
+/* Время */
+.vacancy-time {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .vacancy-page {
+        flex-direction: column;
+    }
+
+    .filter-section {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .vacancy-cards {
+        display: grid;
+        grid-template-columns: 1fr; /* Одно объявление в строке */
+    }
+}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'styles/applications.css' %}">
+    <div class="applications-wrapper">
+        <h2 class="page-title">Отклики на вакансию: {{ job.title }}</h2>
+
+        {% if applications %}
+            <div class="applications-list">
+                {% for application in applications %}
+                    <div class="application-card">
+                        <div class="application-header">
+                            <h3>{{ application.resume.first_name }} {{ application.resume.last_name }}</h3>
+                            <p class="application-meta">Город: {{ application.resume.city }} | {{ application.resume.education }}</p>
+                        </div>
+                        <div class="application-body">
+                            <p><strong>Навыки:</strong> {{ application.resume.skills }}</p>
+                            <p><strong>Контактная информация:</strong> {{ application.resume.contact_info }}</p>
+                            <p><strong>Сопроводительное письмо:</strong> {{ application.cover_letter }}</p>
+                        </div>
+                        <div class="application-footer">
+                            <p><strong>Статус:</strong>
+                                {% if application.is_approved %}
+                                    <span class="status-approved">Утверждено</span>
+                                {% else %}
+                                    <span class="status-pending">Не утверждено</span>
+                                {% endif %}
+                            </p>
+                            <p><strong>Прочитано:</strong>
+                                {% if application.is_read %}
+                                    <span class="status-read">Да</span>
+                                {% else %}
+                                    <span class="status-unread">Нет</span>
+                                {% endif %}
+                            </p>
+                            <form method="post" action="{% url 'view_applications' job.id %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="application_id" value="{{ application.id }}">
+                                <div class="button-group">
+                                    {% if not application.is_approved %}
+                                        <button type="submit" name="action" value="approve" class="btn btn-success">Утвердить</button>
+                                    {% endif %}
+                                    {% if not application.is_read %}
+                                        <button type="submit" name="action" value="mark_read" class="btn btn-info">Прочитано</button>
+                                    {% endif %}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-applications">Нет откликов на эту вакансию.</p>
+        {% endif %}
+    </div>
+{% endblock %}

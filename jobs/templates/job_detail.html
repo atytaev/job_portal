@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/job_detail.css' %}">
+    <div class="job-detail-container">
+    <div class="job-detail">
+        <header class="job-header">
+            <h1 >{{ job.title }}</h1>
+            <span>{{ job.user.company_name }}</span>
+            <p class="company-location">
+                <span class="location">{{ job.location }}</span>
+            </p>
+        </header>
+        <div class="job-info">
+            <div class="salary-section">
+                <strong>Зарплата:</strong>
+                <span class="salary">{{ job.salary }} {{ job.currency }}</span>
+            </div>
+            <div class="job-meta">
+                <span>Опубликовано: {{ job.created_at|date:"d.m.Y" }}</span>
+            </div>
+        </div>
+        <section class="job-description">
+            <h2>Описание вакансии</h2>
+            <p>{{ job.description }}</p>
+        </section>
+        <section class="job-contacts">
+            <h2>Контакты</h2>
+            <p><strong>Имя:</strong> {{ job.user.username }}</p>
+            <p><strong>Email:</strong>{{ job.user.email }}</p>
+            <p><strong>Телефон:</strong> {{ job.user.phone_number }}</p>
+        </section>
+    </div>
+    <aside class="job-sidebar">
+        <div class="sidebar-block">
+            <h2>Похожие вакансии</h2>
+            <ul>
+                {% if similar_jobs %}
+                    {% for similar_job in similar_jobs %}
+                        <li><a href="{% url 'job_detail' similar_job.id %}">{{ similar_job.title }}</a></li>
+                    {% endfor %}
+                {% else %}
+                    <li>Нет похожих вакансий</li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </aside>
+</div>
+{% endblock %}

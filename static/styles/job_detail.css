@@ -1,0 +1,130 @@
+/* Общий контейнер */
+.job-detail-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Основная информация о вакансии */
+.job-detail {
+    flex: 2;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.job-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.job-header .company-location {
+    font-size: 16px;
+    color: #777;
+}
+
+.job-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.salary-section {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.salary-section .salary {
+    color: #e74c3c;
+}
+
+.job-description, .job-contacts {
+    margin-top: 20px;
+}
+
+.job-description h2, .job-contacts h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+.job-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.job-contacts p {
+    font-size: 16px;
+    color: #555;
+}
+
+.job-contacts a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.job-contacts a:hover {
+    color: #2980b9;
+}
+
+/* Боковая панель */
+.job-sidebar {
+    width: 100%;
+    max-width: 300px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.sidebar-block h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-block ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-block ul li a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.sidebar-block ul li a:hover {
+    color: #0056b3;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .job-detail-container {
+        flex-direction: column;
+    }
+
+    .job-sidebar {
+        margin-top: 20px;
+    }
+}

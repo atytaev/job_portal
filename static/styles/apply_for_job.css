@@ -1,0 +1,75 @@
+/* Резюме (обертка) */
+.resume-preview {
+    background-color: #fff; /* Белый фон */
+    border: 1px solid #e0e0e0; /* Легкая рамка */
+    border-radius: 12px; /* Скругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ под блоком */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+/* Стиль пунктов резюме */
+.resume-preview p {
+    font-size: 16px;
+    line-height: 1.6; /* Увеличенное расстояние между строками */
+    margin: 5px 0;
+}
+
+.resume-preview strong {
+    color: #2c3e50; /* Цвет выделений */
+}
+
+/* Форма */
+form {
+    background-color: #fff; /* Белый фон */
+    padding: 20px;
+    border: 1px solid #e0e0e0; /* Легкая рамка */
+    border-radius: 12px; /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+/* Поля формы */
+form input, form textarea, form select {
+    width: 100%; /* Поля занимают всю ширину */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Учет отступов в размере */
+}
+
+/* Кнопка отправки */
+form button {
+    background-color: #3498db; /* Синий фон */
+    color: #fff; /* Белый текст */
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px; /* Скругленные углы */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #2980b9; /* Темно-синий цвет при наведении */
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2, h3 {
+        font-size: 20px;
+    }
+
+    .resume-preview, form {
+        padding: 15px;
+    }
+
+    form button {
+        width: 100%; /* Кнопка занимает всю ширину */
+    }
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/apply_for_job.css' %}">
+
+<div class="container">
+    <h1>Отклик на вакансию: {{ job.title }}</h1>
+
+    <h2>Ваше резюме</h2>
+    <div class="resume-preview">
+        {% if resume %}
+            <p><strong>Имя:</strong> {{ resume.first_name }} </p>
+            <p><strong>Фамилия:</strong> {{ resume.last_name }} </p>
+            <p><strong>Дата рождения:</strong> {{ resume.Birth }} </p>
+            <p><strong>Город проживания:</strong> {{ resume.city }} </p>
+            <p><strong>Навыки:</strong>  {{ resume.skills }}</p>
+            <p><strong>Опыт работы:</strong> {{ resume.experience }}</p>
+            <p><strong>Образование:</strong> {{ resume.education }}</p>
+            <p><strong>Контактная информация:</strong> {{ resume.contact_info }}</p>
+        {% else %}
+            <p>
+                У вас пока нет резюме. <a href="{% url 'create_resume' %}">Создать резюме</a>
+            </p>
+        {% endif %}
+    </div>
+
+    <h3>Сопроводительное письмо</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить отклик</button>
+    </form>
+</div>
+
+{% endblock %}

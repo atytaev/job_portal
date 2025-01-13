@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<section class="register-form">
+    <div class="containers">
+        <form method="post">
+            <h2>Регистрация</h2>
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const roleField = document.querySelector('#id_role');
+                        const companyField = document.querySelector('#id_company_name');
+
+                        if (!roleField) {
+                            console.error("Поле #id_role не найдено. Проверьте ID.");
+                            return;
+                        }
+
+                        if (!companyField) {
+                            console.error("Контейнер #company-name-field не найден. Проверьте ID.");
+                            return;
+                        }
+
+                        function toggleCompanyField() {
+                            if (roleField.value === 'COMPANY') {
+                                companyField.style.display = 'block';
+                            } else {
+                                companyField.style.display = 'none';
+                            }
+                            console.log(`Текущая роль: ${roleField.value}`);
+                        }
+
+                        toggleCompanyField();
+                        roleField.addEventListener('change', toggleCompanyField);
+                    });
+                </script>
+            </div>
+            <button type="submit" class="btn btn-register">Зарегистрироваться</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

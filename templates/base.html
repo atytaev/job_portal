@@ -1,0 +1,61 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Title{% endblock %}</title>
+	<link type="text/css" rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+	<header class="header">
+            <div id="toast-container" class="toast-container">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="toast toast-{{ message.tags }}">
+                            {{ message }}
+                            <span class="toast-close" onclick="this.parentElement.style.display='none';">&times;</span>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="container">
+                <nav class="navbar">
+                    <h3 class="logo">AllWorks.by </h3>
+                    <ul class="nav-links">
+                        <li><a href="{% url 'job_list' %}">Главная</a></li>
+                        {% if user.is_authenticated %}
+                            {% if user.role == 'COMPANY' %}
+                                <li><a href="{% url 'job_сompany' %}">Мои вакансии</a></li>
+                                <li><a href="{% url 'job_create' %}">Разместить вакансию</a></li>
+                            {% elif user.role == 'APPLICANT' %}
+                                <li><a href="{% url 'job_list' %}">Вакансии</a></li>
+                                <li><a href="{% url 'user_resume' %}">Мое резюме</a></li>
+                                <li><a href="{% url 'create_resume' %}">Создать резюме</a></li>
+                            {% endif %}
+                                <li><a href="{% url 'logout' %}">Выйти</a></li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Войти</a></li>
+                            <li><a href="{% url 'registration' %}">Регистрация</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+<script>
+    // Автоматическое удаление всплывающих сообщений
+    document.addEventListener('DOMContentLoaded', function () {
+        const toasts = document.querySelectorAll('.toast');
+        toasts.forEach((toast) => {
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 5000); // Сообщение исчезнет через 5 секунд
+        });
+    });
+</script>
+</body>
+</html>
